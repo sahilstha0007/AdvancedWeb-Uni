@@ -1,0 +1,29 @@
+<app-header></app-header>
+
+<h1>{{title() }}</h1>
+<p>Name: {{ laptopName }}</p>
+<p>Price: RM {{ price }}</p>
+<img [src]="getImageUrl()" width="200" alt="Image 2" />
+<button (click)="addToCart()">Add to Cart</button>
+<p></p>
+<input [(ngModel)]="searchText" placeholder="Search laptop" />
+<p>You typed: {{ searchText }}</p>
+<p></p>
+<mat-card>
+  <mat-card-title>{{ laptopName }}</mat-card-title>
+  <mat-card-content>RM {{ price }}</mat-card-content>
+</mat-card>
+<p></p>
+@for (laptop of laptops; track $index) {
+<div>
+  <p>{{ laptop.name }} - RM {{ laptop.price }}</p>
+  <button (click)="selectedLaptop = laptop.name">Select</button>
+
+  @if (laptop.stock) {
+  <span>In Stock</span>
+  } @else {
+  <span>Out of Stock</span>
+  }
+</div>
+}
+<p>Selected: {{ selectedLaptop }}</p>
