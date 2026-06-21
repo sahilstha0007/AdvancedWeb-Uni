@@ -1,0 +1,12 @@
+<h2>Available Laptops</h2>
+
+@if (laptops.length ===0){
+<p> Loading laptops...</p>
+}
+@for (laptop of laptops; track laptop.id){
+<div>
+  <h3>{{laptop.brand | uppercaseBrand}} {{laptop.model}}</h3>
+  <p>Price: {{laptop.price | currency: "MYR"}}</p>
+  <button (click)="viewDetails(laptop.id)">View Details</button>
+</div>
+}

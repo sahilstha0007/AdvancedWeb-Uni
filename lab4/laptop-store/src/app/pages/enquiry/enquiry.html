@@ -1,0 +1,32 @@
+<h2>Customer Enquiry</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <!-- Name Field -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter your name" />
+    @if (form.get('name')?.hasError('required')) {
+    <mat-error>
+      Name is required
+    </mat-error>
+    }
+  </mat-form-field>
+  <!-- Email Field -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Enter your email" />
+    @if (form.get('email')?.hasError('required')) {
+    <mat-error>
+      Email is required
+    </mat-error>
+    }
+    @if (form.get('email')?.hasError('email')) {
+    <mat-error>
+      Enter a valid email
+    </mat-error>
+    }
+  </mat-form-field>
+  <!-- Submit Button -->
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Submit
+  </button>
+</form>

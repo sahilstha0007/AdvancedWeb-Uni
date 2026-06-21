@@ -1,0 +1,8 @@
+@if (laptop) {
+<h2>{{ laptop.brand | uppercaseBrand }} {{ laptop.model }}</h2>
+<p>{{ laptop.description }}</p>
+<p>Price: {{ laptop.price | currency:'MYR' }}</p>
+<a routerLink="/">Back</a>
+} @else {
+<p>Loading laptop details...</p>
+}
